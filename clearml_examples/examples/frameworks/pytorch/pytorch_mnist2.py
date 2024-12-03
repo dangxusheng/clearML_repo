@@ -112,8 +112,9 @@ def main():
 
     # getting a local copy of the dataset
     dataset_id="ae2bd73b859f4abb8f9c70062dadc491"
-    clearml_datafolder = Dataset.get(dataset_name='MnistDataset',dataset_id=dataset_id).get_local_copy()
-    print("clearml_datafolder: ", clearml_datafolder)
+    print("clearml_datafolder1: ", Dataset.get(dataset_id=dataset_id))
+    clearml_datafolder = Dataset.get(dataset_id=dataset_id).get_local_copy()
+    print("clearml_datafolder2: ", clearml_datafolder)
 
     train_loader = torch.utils.data.DataLoader(
         datasets.MNIST(os.path.join('..', 'data'), train=True, download=True,
