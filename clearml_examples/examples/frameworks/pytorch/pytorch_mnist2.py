@@ -4,6 +4,11 @@ from __future__ import print_function
 
 import argparse
 import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["http_proxy"] = "http://10.0.16.29:20172"
+os.environ["https_proxy"] = "http://10.0.16.29:20172"
+
+
 from tempfile import gettempdir
 
 import torch
@@ -122,10 +127,10 @@ def main():
     
     train_loader = torch.utils.data.DataLoader(
         datasets.MNIST(
-            # os.path.join('..', 'data'), 
-            minst_datapath_on_server,
+            os.path.join('..', 'data'), 
+            # minst_datapath_on_server,
                        train=True, 
-                       download=False,
+                       download=True,
                        transform=transforms.Compose([
                            transforms.ToTensor(),
                            transforms.Normalize((0.1307,), (0.3081,))
