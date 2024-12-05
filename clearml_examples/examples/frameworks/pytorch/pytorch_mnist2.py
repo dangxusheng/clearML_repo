@@ -4,9 +4,9 @@ from __future__ import print_function
 
 import argparse
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-os.environ["http_proxy"] = "http://10.0.16.29:20172"
-os.environ["https_proxy"] = "http://10.0.16.29:20172"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+# os.environ["http_proxy"] = "http://10.0.16.29:20172"
+# os.environ["https_proxy"] = "http://10.0.16.29:20172"
 
 
 from tempfile import gettempdir
