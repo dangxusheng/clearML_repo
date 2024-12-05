@@ -130,7 +130,7 @@ def main():
             # os.path.join('..', 'data'), 
             minst_datapath_on_server,
                        train=True, 
-                       download=True,
+                       download=False,
                        transform=transforms.Compose([
                            transforms.ToTensor(),
                            transforms.Normalize((0.1307,), (0.3081,))
