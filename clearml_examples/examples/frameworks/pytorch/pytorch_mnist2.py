@@ -116,8 +116,14 @@ def main():
     clearml_datafolder = Dataset.get(dataset_id=dataset_id).get_local_copy()
     print("clearml_datafolder2: ", clearml_datafolder)
 
+    minst_datapath_on_server = "/home/sunnypc/DataDisk/dangxs/datasets/MNIST_DATA"
+    
     train_loader = torch.utils.data.DataLoader(
-        datasets.MNIST(os.path.join('..', 'data'), train=True, download=True,
+        datasets.MNIST(
+            # os.path.join('..', 'data'), 
+            minst_datapath_on_server,
+                       train=True, 
+                       download=False,
                        transform=transforms.Compose([
                            transforms.ToTensor(),
                            transforms.Normalize((0.1307,), (0.3081,))
