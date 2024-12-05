@@ -110,13 +110,15 @@ def main():
 
     kwargs = {'num_workers': 4, 'pin_memory': True} if use_cuda else {}
 
-    # getting a local copy of the dataset
-    dataset_id="ae2bd73b859f4abb8f9c70062dadc491"
-    print("clearml_datafolder1: ", Dataset.get(dataset_id=dataset_id))
-    clearml_datafolder = Dataset.get(dataset_id=dataset_id).get_local_copy()
-    print("clearml_datafolder2: ", clearml_datafolder)
+    # # error: TypeError: __init__() got an unexpected keyword argument 'artifact_name'
+    # # getting a local copy of the dataset
+    # dataset_id="ae2bd73b859f4abb8f9c70062dadc491"
+    # print("clearml_datafolder1: ", Dataset.get(dataset_id=dataset_id))
+    # clearml_datafolder = Dataset.get(dataset_id=dataset_id).get_local_copy()
+    # print("clearml_datafolder2: ", clearml_datafolder)
 
     minst_datapath_on_server = "/home/sunnypc/DataDisk/dangxs/datasets/MNIST_DATA"
+    assert os.path.exists(minst_datapath_on_server), "MNIST dataset not found"
     
     train_loader = torch.utils.data.DataLoader(
         datasets.MNIST(
